@@ -51,7 +51,7 @@ class QueryPanel implements Tracy\IBarPanel
 			$title = "$c queries";
 		}
 
-		return "$title, " . number_format($this->collector->getTotalElapsedTime(), 1) . '&nbsp;ms';
+		return "$title, " . number_format($this->collector->getTotalElapsedTime(), 1, '.', ' ') . 'ms';
 	}
 
 
@@ -65,7 +65,7 @@ class QueryPanel implements Tracy\IBarPanel
 	public function getTab()
 	{
 		$img = base64_encode(file_get_contents(__DIR__ . '/icon.svg'));
-		return '<img width="16" height="16" src="data:image/svg+xml;base64,' . $img . '" />'
+		return '<img width="16" height="16" src="data:image/svg+xml;base64,' . $img . '" /> '
 			. $this->getTitle()
 			. '</span>';
 	}
